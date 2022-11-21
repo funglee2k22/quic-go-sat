@@ -186,6 +186,7 @@ func (c *cubicSender) OnPacketAcked(
 	if c.InSlowStart() {
 		c.hybridSlowStart.OnPacketAcked(ackedPacketNumber)
 	}
+	utils.DefaultLogger.Infof("Cwnd: %d, Bytes_in_flght: %d", c.congestionWindow, priorInFlight)
 }
 
 func (c *cubicSender) OnPacketLost(packetNumber protocol.PacketNumber, lostBytes, priorInFlight protocol.ByteCount) {
