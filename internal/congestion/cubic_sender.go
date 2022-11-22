@@ -186,7 +186,7 @@ func (c *cubicSender) OnPacketAcked(
 	if c.InSlowStart() {
 		c.hybridSlowStart.OnPacketAcked(ackedPacketNumber)
 	}
-	utils.DefaultLogger.Infof("Cwnd: %d, Bytes_in_flght: %d", c.congestionWindow, priorInFlight)
+	// utils.DefaultLogger.Infof("Cwnd: %d, Bytes_in_flght: %d", c.congestionWindow, priorInFlight)
 }
 
 func (c *cubicSender) OnPacketLost(packetNumber protocol.PacketNumber, lostBytes, priorInFlight protocol.ByteCount) {
@@ -223,12 +223,14 @@ func (c *cubicSender) maybeIncreaseCwnd(
 ) {
 	// Do not increase the congestion window unless the sender is close to using
 	// the current window.
+	/*
 	if !c.isCwndLimited(priorInFlight) {
 		c.cubic.OnApplicationLimited()
 		c.maybeTraceStateChange(logging.CongestionStateApplicationLimited)
 		return
 	}
-	utils.DefaultLogger.Infof("cwnd: %d, max_cwnd: %d", c.congestionWindow, c.maxCongestionWindow)
+	*/
+	//utils.DefaultLogger.Infof("cwnd: %d, max_cwnd: %d", c.congestionWindow, c.maxCongestionWindow)
 	if c.congestionWindow >= c.maxCongestionWindow() {
 		return
 	}

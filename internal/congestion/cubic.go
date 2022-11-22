@@ -205,7 +205,7 @@ func (c *Cubic) CongestionWindowAfterAck(
 	if targetCongestionWindow < c.estimatedTCPcongestionWindow {
 		targetCongestionWindow = c.estimatedTCPcongestionWindow
 	}
-	utils.DefaultLogger.Infof("target_Cwnd: %d, lastCwnd: %d, estcwnd: %d, lastMaxCwnd: %d", targetCongestionWindow, c.lastTargetCongestionWindow, c.estimatedTCPcongestionWindow, c.lastMaxCongestionWindow)
+	//utils.DefaultLogger.Infof("target_Cwnd: %d, lastCwnd: %d, estcwnd: %d, lastMaxCwnd: %d", targetCongestionWindow, c.lastTargetCongestionWindow, c.estimatedTCPcongestionWindow, c.lastMaxCongestionWindow)
 	return targetCongestionWindow
 }
 
