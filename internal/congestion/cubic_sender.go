@@ -228,6 +228,7 @@ func (c *cubicSender) maybeIncreaseCwnd(
 		c.maybeTraceStateChange(logging.CongestionStateApplicationLimited)
 		return
 	}
+	utils.DefaultLogger.Infof("cwnd: %d, max_cwnd: %d", c.congestionWindow, c.maxCongestionWindow)
 	if c.congestionWindow >= c.maxCongestionWindow() {
 		return
 	}
@@ -249,6 +250,7 @@ func (c *cubicSender) maybeIncreaseCwnd(
 	} else {
 		c.congestionWindow = utils.Min(c.maxCongestionWindow(), c.cubic.CongestionWindowAfterAck(ackedBytes, c.congestionWindow, c.rttStats.MinRTT(), eventTime))
 	}
+
 }
 
 func (c *cubicSender) isCwndLimited(bytesInFlight protocol.ByteCount) bool {
