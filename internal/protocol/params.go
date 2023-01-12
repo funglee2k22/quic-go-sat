@@ -12,7 +12,7 @@ const InitialPacketSizeIPv4 = 1252
 const InitialPacketSizeIPv6 = 1232
 
 // MaxCongestionWindowPackets is the maximum congestion window in packet.
-const MaxCongestionWindowPackets = 40000
+const MaxCongestionWindowPackets = 8000
 
 // MaxUndecryptablePackets limits the number of undecryptable packets that are queued in the connection.
 const MaxUndecryptablePackets = 32

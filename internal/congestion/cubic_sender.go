@@ -16,7 +16,7 @@ const (
 	maxBurstPackets            = 3
 	renoBeta                   = 0.7 // Reno backoff factor.
 	minCongestionWindowPackets = 64
-	initialCongestionWindow    = 512
+	initialCongestionWindow    = 1024 
 )
 
 type cubicSender struct {
